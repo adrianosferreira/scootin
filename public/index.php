@@ -21,6 +21,7 @@ $logger->pushHandler($socketHandler);
 
 $logger->info('Test aaa');
 
+use App\Product;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\ORMSetup;
 
@@ -29,14 +30,21 @@ $isDevMode = false;
 
 // the connection configuration
 $dbParams = array(
-    'driver'   => 'pdo_mysql',
-    'user'     => 'root',
-    'password' => '0&X7^Xuas6y79qN8i6$fG',
-    'dbname'   => 'core',
+    'driver' => 'pdo_mysql',
+    'host' => 'db',
+    'dbname' => 'core',
+    'user' => 'admin',
+    'password' => '4q#m1H4m%QkLdOY#c!uD&',
 );
 
 $config = ORMSetup::createAttributeMetadataConfiguration($paths, $isDevMode);
 $entityManager = EntityManager::create($dbParams, $config);
+
+$product = new Product();
+$product->setId(123);
+$product->setName('fdsafsda');
+$entityManager->persist($product);
+$entityManager->flush();
 
 /**
  * Self-called anonymous function that creates its own scope and keeps the global namespace clean.
