@@ -7,6 +7,9 @@
       <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/test/AppTest" isTestSource="true" packagePrefix="AppTest\" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Scooter/src" isTestSource="false" packagePrefix="Scooter\" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ScooterHistory/src" isTestSource="false" packagePrefix="ScooterHistory\" />
+      <sourceFolder url="file://$MODULE_DIR$/src/User/src" isTestSource="false" packagePrefix="User\" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-component-installer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-stdlib" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-diactoros" />

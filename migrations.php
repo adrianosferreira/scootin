@@ -9,7 +9,7 @@ return [
     ],
 
     'migrations_paths' => [
-        'Scootin\Migrations' => __DIR__ . '/migrations',
+        'App\Migrations' => __DIR__ . '/migrations',
     ],
 
     'all_or_nothing' => true,

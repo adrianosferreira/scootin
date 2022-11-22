@@ -24,6 +24,7 @@ $logger->info('Test aaa');
 use App\Product;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\ORMSetup;
+use Scooter\Entities\Scooter;
 
 $paths = array("/path/to/entity-files");
 $isDevMode = false;
@@ -40,10 +41,9 @@ $dbParams = array(
 $config = ORMSetup::createAttributeMetadataConfiguration($paths, $isDevMode);
 $entityManager = EntityManager::create($dbParams, $config);
 
-$product = new Product();
-$product->setId(123);
-$product->setName('fdsafsda');
-$entityManager->persist($product);
+$user = new \User\Entities\User();
+$user->setEmail('fdsafasd');
+$entityManager->persist($user);
 $entityManager->flush();
 
 /**
