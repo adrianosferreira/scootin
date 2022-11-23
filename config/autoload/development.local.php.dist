@@ -23,7 +23,7 @@ return [
             'host' => 'db',
             'dbname' => 'core',
             'user' => 'admin',
-            'pass' => $_ENV['CORE_DB_PASS']
+            'pass' => $_ENV['ADMIN_DB_ROOT_PASSWORD']
         ]
     ]
 ];

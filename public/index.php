@@ -32,16 +32,11 @@ $dbParams = array(
     'host' => 'db',
     'dbname' => 'core',
     'user' => 'admin',
-    'password' => '4q#m1H4m%QkLdOY#c!uD&',
+    'password' => $_ENV['ADMIN_DB_ROOT_PASSWORD'],
 );
 
 $config = ORMSetup::createAttributeMetadataConfiguration($paths, $isDevMode);
 $entityManager = EntityManager::create($dbParams, $config);
-
-$user = new \User\Entities\User();
-$user->setEmail('fdsafasd');
-$entityManager->persist($user);
-$entityManager->flush();
 
 /**
  * Self-called anonymous function that creates its own scope and keeps the global namespace clean.
