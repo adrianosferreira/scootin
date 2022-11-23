@@ -12,4 +12,18 @@
 
 declare(strict_types=1);
 
-return [];
+return [
+    'logstash' => [
+        'socketConnection' => 'logstash:50000',
+        'appName' => 'core',
+    ],
+    'db' => [
+        'core' => [
+            'driver' => 'pdo_mysql',
+            'host' => 'db',
+            'dbname' => 'core',
+            'user' => 'admin',
+            'pass' => $_ENV['CORE_DB_PASS']
+        ]
+    ]
+];

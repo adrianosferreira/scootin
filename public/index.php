@@ -10,6 +10,15 @@ if (PHP_SAPI === 'cli-server' && $_SERVER['SCRIPT_FILENAME'] !== __FILE__) {
 chdir(dirname(__DIR__));
 require 'vendor/autoload.php';
 
+use App\Product;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\ORMSetup;
+use Scooter\Entities\Scooter;
+use Symfony\Component\Dotenv\Dotenv;
+
+$dotenv = new Dotenv();
+$dotenv->load(__DIR__.'/../.env');
+
 $logger = new \Monolog\Logger('test');
 $socketHandler = new \Monolog\Handler\SocketHandler('logstash:50000');
 
@@ -20,11 +29,6 @@ $socketHandler->setFormatter($formatter);
 $logger->pushHandler($socketHandler);
 
 $logger->info('Test aaa');
-
-use App\Product;
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\ORMSetup;
-use Scooter\Entities\Scooter;
 
 $paths = array("/path/to/entity-files");
 $isDevMode = false;
