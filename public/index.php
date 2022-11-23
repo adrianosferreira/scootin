@@ -13,22 +13,15 @@ require 'vendor/autoload.php';
 use App\Product;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\ORMSetup;
+use Mezzio\Application;
+use Mezzio\MiddlewareFactory;
+use Psr\Container\ContainerInterface;
+use Psr\Log\LoggerInterface;
 use Scooter\Entities\Scooter;
 use Symfony\Component\Dotenv\Dotenv;
 
 $dotenv = new Dotenv();
 $dotenv->load(__DIR__.'/../.env');
-
-$logger = new \Monolog\Logger('test');
-$socketHandler = new \Monolog\Handler\SocketHandler('logstash:50000');
-
-$formatter = new \Monolog\Formatter\LogstashFormatter('core');
-
-$socketHandler->setFormatter($formatter);
-
-$logger->pushHandler($socketHandler);
-
-$logger->info('Test aaa');
 
 $paths = array("/path/to/entity-files");
 $isDevMode = false;
@@ -54,12 +47,14 @@ $entityManager->flush();
  * Self-called anonymous function that creates its own scope and keeps the global namespace clean.
  */
 (function () {
-    /** @var \Psr\Container\ContainerInterface $container */
+    /** @var ContainerInterface $container */
     $container = require 'config/container.php';
 
-    /** @var \Mezzio\Application $app */
-    $app = $container->get(\Mezzio\Application::class);
-    $factory = $container->get(\Mezzio\MiddlewareFactory::class);
+    /** @var Application $app */
+    $app = $container->get(Application::class);
+    $factory = $container->get(MiddlewareFactory::class);
+
+    $logger = $container->get(LoggerInterface::class);
 
     // Execute programmatic/declarative middleware pipeline and routing
     // configuration statements

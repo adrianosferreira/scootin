@@ -10,6 +10,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/Scooter/src" isTestSource="false" packagePrefix="Scooter\" />
       <sourceFolder url="file://$MODULE_DIR$/src/ScooterHistory/src" isTestSource="false" packagePrefix="ScooterHistory\" />
       <sourceFolder url="file://$MODULE_DIR$/src/User/src" isTestSource="false" packagePrefix="User\" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Logger/src" isTestSource="false" packagePrefix="Logger\" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-component-installer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-stdlib" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-diactoros" />
@@ -101,6 +102,10 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/cache-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/cache" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/dotenv" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/squizlabs/php_codesniffer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/slevomat/coding-standard" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpstan/phpdoc-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dealerdirect/phpcodesniffer-composer-installer" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

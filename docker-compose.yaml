@@ -1,14 +1,6 @@
 version: '3.7'
 
 services:
-
-  # The 'setup' service runs a one-off script which initializes users inside
-  # Elasticsearch — such as 'logstash_internal' and 'kibana_system' — with the
-  # values of the passwords defined in the '.env' file.
-  #
-  # This task is only performed during the *initial* startup of the stack. On all
-  # subsequent runs, the service simply returns immediately, without performing
-  # any modification to existing users.
   setup:
     build:
       context: setup/
@@ -45,12 +37,7 @@ services:
     environment:
       node.name: elasticsearch
       ES_JAVA_OPTS: -Xms512m -Xmx512m
-      # Bootstrap password.
-      # Used to initialize the keystore during the initial startup of
-      # Elasticsearch. Ignored on subsequent runs.
       ELASTIC_PASSWORD: ${ELASTIC_PASSWORD:-}
-      # Use single node discovery in order to disable production mode and avoid bootstrap checks.
-      # see: https://www.elastic.co/guide/en/elasticsearch/reference/current/bootstrap-checks.html
       discovery.type: single-node
     networks:
       - elk
@@ -123,10 +110,10 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: 0&X7^Xuas6y79qN8i6$fG
+      MYSQL_ROOT_PASSWORD: ${CORE_DB_ROOT_PASSWORD}
       MYSQL_DATABASE: core
       MYSQL_USER: admin
-      MYSQL_PASSWORD: 4q#m1H4m%QkLdOY#c!uD&
+      MYSQL_PASSWORD: ${ADMIN_DB_ROOT_PASSWORD}
     networks:
       - elk
 
