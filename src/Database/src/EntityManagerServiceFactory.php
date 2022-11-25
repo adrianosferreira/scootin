@@ -2,7 +2,7 @@
 
 namespace Database;
 
-use Database\Services\EntityManagerService;
+use Database\CustomFunctions\SinCustomFunction;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\ORMSetup;
 use Laminas\ServiceManager\Factory\FactoryInterface;
@@ -25,6 +25,11 @@ class EntityManagerServiceFactory implements FactoryInterface
         );
 
         $config = ORMSetup::createAttributeMetadataConfiguration($paths, $isDevMode);
+        $config->addCustomNumericFunction('acos', SinCustomFunction::class);
+        $config->addCustomNumericFunction('cos', SinCustomFunction::class);
+        $config->addCustomNumericFunction('radians', SinCustomFunction::class);
+        $config->addCustomNumericFunction('sin', SinCustomFunction::class);
+
         return EntityManager::create($dbParams, $config);
     }
 }

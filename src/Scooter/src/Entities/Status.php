@@ -2,7 +2,8 @@
 
 namespace Scooter\Entities;
 
-class Status
+enum Status: int
 {
-
+    case FREE = 0;
+    case OCCUPIED = 1;
 }

@@ -5,8 +5,14 @@ declare(strict_types=1);
 namespace Scooter;
 
 use Mezzio\Application;
+use Scooter\Entities\Factory\ScooterHistoryRepositoryFactory;
+use Scooter\Entities\Factory\ScooterRepositoryFactory;
+use Scooter\Entities\ScooterHistoryRepository;
+use Scooter\Entities\ScooterRepository;
+use Scooter\Handler\Factory\ScooterHandlerFactory;
+use Scooter\Handler\Factory\ScooterNearbyHandlerFactory;
 use Scooter\Handler\ScooterHandler;
-use Scooter\Handler\ScooterHandlerFactory;
+use Scooter\Handler\ScooterNearbyHandler;
 
 /**
  * The configuration provider for the App module
@@ -37,6 +43,9 @@ class ConfigProvider
         return [
             'factories'  => [
                 ScooterHandler::class => ScooterHandlerFactory::class,
+                ScooterNearbyHandler::class => ScooterNearbyHandlerFactory::class,
+                ScooterHistoryRepository::class => ScooterHistoryRepositoryFactory::class,
+                ScooterRepository::class => ScooterRepositoryFactory::class,
             ],
             'delegators' => [
                 Application::class => [

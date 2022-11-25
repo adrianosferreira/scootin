@@ -2,7 +2,9 @@
 
 namespace Scooter\Entities;
 
-class InvalidScooterHistoryRequest
+use Exception;
+
+class InvalidScooterHistoryRequest extends Exception
 {
 
 }

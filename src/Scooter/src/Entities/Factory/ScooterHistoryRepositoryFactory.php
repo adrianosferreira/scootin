@@ -1,11 +1,12 @@
 <?php
 
-namespace Scooter\Entities;
+namespace Scooter\Entities\Factory;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Laminas\ServiceManager\Factory\FactoryInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
+use Scooter\Entities\ScooterHistoryRepository;
 
 class ScooterHistoryRepositoryFactory implements FactoryInterface
 {
