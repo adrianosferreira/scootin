@@ -9,13 +9,11 @@ use Doctrine\ORM\Query\Lexer;
 use Doctrine\ORM\Query\Parser;
 use Doctrine\ORM\Query\SqlWalker;
 
-class RadiansCustomFunction extends FunctionNode
+class AnyValueCustomFunction extends FunctionNode
 {
     public function getSql(SqlWalker $sqlWalker)
     {
-        return 'RADIANS(' . $sqlWalker->walkSimpleArithmeticExpression(
-            $this->simpleArithmeticExpression
-        ) . ')';
+        return 'ANY_VALUE(' . $this->value->dispatch($sqlWalker) . ')';
     }
 
     public function parse(Parser $parser)
@@ -23,7 +21,7 @@ class RadiansCustomFunction extends FunctionNode
         $parser->match(Lexer::T_IDENTIFIER);
         $parser->match(Lexer::T_OPEN_PARENTHESIS);
 
-        $this->simpleArithmeticExpression = $parser->SimpleArithmeticExpression();
+        $this->value = $parser->StringPrimary();
 
         $parser->match(Lexer::T_CLOSE_PARENTHESIS);
     }

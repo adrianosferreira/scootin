@@ -33,10 +33,9 @@ class ConfigProvider
     public function getDependencies(): array
     {
         return [
-            'invokables' => [
-            ],
+            'invokables' => [],
             'factories'  => [
-                EntityManagerInterface::class => EntityManagerServiceFactory::class
+                EntityManagerInterface::class => EntityManagerServiceFactory::class,
             ],
         ];
     }

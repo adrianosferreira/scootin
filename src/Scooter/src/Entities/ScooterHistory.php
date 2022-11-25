@@ -1,10 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Scooter\Entities;
 
 use Doctrine\ORM\Mapping as ORM;
-use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ServerRequestInterface;
+
+use function filter_var;
+
+use const FILTER_SANITIZE_FULL_SPECIAL_CHARS;
+use const FILTER_SANITIZE_NUMBER_INT;
 
 #[ORM\Entity]
 #[ORM\Table(name: 'scooter_history')]
@@ -15,6 +21,7 @@ class ScooterHistory
     #[ORM\GeneratedValue]
     public readonly int $id;
 
+    #[ORM\ManyToOne(targetEntity: Scooter::class)]
     #[ORM\Column(type: 'integer')]
     public readonly int $scooter_id;
 
@@ -75,7 +82,7 @@ class ScooterHistory
             ? filter_var(Status::tryFrom($requestParameters['status'])->value, FILTER_SANITIZE_NUMBER_INT)
             : throw new InvalidScooterHistoryRequest('The status field is missing');
 
-        if (!$status) {
+        if ($status === null) {
             throw new InvalidScooterHistoryRequest('The status field is invalid');
         }
 

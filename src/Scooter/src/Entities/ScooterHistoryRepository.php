@@ -1,25 +1,29 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Scooter\Entities;
 
 use Doctrine\ORM\EntityManagerInterface;
-use Laminas\Diactoros\Response\JsonResponse;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Log\LoggerInterface;
+use Throwable;
+
+use function sprintf;
 
 class ScooterHistoryRepository
 {
     public function __construct(
-        private EntityManagerInterface $entityManager,
         private LoggerInterface $logger,
+        private EntityManagerInterface $entityManager,
     ) {
     }
 
-    public function saveFromRequest(ServerRequestInterface $request): void
+    public function createFromRequest(ServerRequestInterface $request): void
     {
         try {
             $scooterHistory = ScooterHistory::createFromRequest($request);
-        } catch (\Throwable $exception) {
+        } catch (Throwable $exception) {
             $this->logger->error($exception->getMessage());
 
             throw $exception;

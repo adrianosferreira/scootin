@@ -9,19 +9,22 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Scooter\Entities\ScooterHistoryRepository;
+use Scooter\Entities\ScooterRepository;
 use Throwable;
 
 class ScooterHistoryCreateHandler implements RequestHandlerInterface
 {
     public function __construct(
         private ScooterHistoryRepository $scooterHistoryRepository,
+        private ScooterRepository $scooterRepository,
     ) {
     }
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
         try {
-            $this->scooterHistoryRepository->saveFromRequest($request);
+            $this->scooterHistoryRepository->createFromRequest($request);
+            $this->scooterRepository->updateFromRequest($request);
         } catch (Throwable $exception) {
             return new JsonResponse(
                 [

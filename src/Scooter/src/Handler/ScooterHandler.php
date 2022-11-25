@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Scooter\Handler;
 
 use Laminas\Diactoros\Response\JsonResponse;
@@ -7,6 +9,8 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Psr\Log\LoggerInterface;
+
+use function time;
 
 class ScooterHandler implements RequestHandlerInterface
 {

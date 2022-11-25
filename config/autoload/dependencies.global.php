@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use Logger\LoggerFactory;
-use Psr\Log\LoggerInterface;
+use Mezzio\Application;
+use Mezzio\Container\ApplicationConfigInjectionDelegator;
 
 return [
     // Provides application-wide services.
@@ -22,12 +22,12 @@ return [
             // Fully\Qualified\InterfaceName::class => Fully\Qualified\ClassName::class,
         ],
         // Use 'factories' for services provided by callbacks/factory classes.
-        'factories' => [
+        'factories'  => [
             // Fully\Qualified\ClassName::class => Fully\Qualified\FactoryName::class,
         ],
         'delegators' => [
-            \Mezzio\Application::class => [
-                \Mezzio\Container\ApplicationConfigInjectionDelegator::class,
+            Application::class => [
+                ApplicationConfigInjectionDelegator::class,
             ],
         ],
     ],

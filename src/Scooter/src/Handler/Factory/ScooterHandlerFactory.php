@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Scooter\Handler\Factory;
 
 use Laminas\ServiceManager\Factory\FactoryInterface;
@@ -9,7 +11,6 @@ use Scooter\Handler\ScooterHandler;
 
 class ScooterHandlerFactory implements FactoryInterface
 {
-
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null): ScooterHandler
     {
         return new ScooterHandler($container->get(LoggerInterface::class));

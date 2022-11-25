@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Scooter\Entities\Factory;
 
 use Doctrine\ORM\EntityManagerInterface;
@@ -13,8 +15,8 @@ class ScooterHistoryRepositoryFactory implements FactoryInterface
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         return new ScooterHistoryRepository(
-            $container->get(EntityManagerInterface::class),
             $container->get(LoggerInterface::class),
+            $container->get(EntityManagerInterface::class),
         );
     }
 }

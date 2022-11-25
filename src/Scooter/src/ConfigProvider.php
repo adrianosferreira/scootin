@@ -42,15 +42,15 @@ class ConfigProvider
     {
         return [
             'factories'  => [
-                ScooterHandler::class => ScooterHandlerFactory::class,
-                ScooterNearbyHandler::class => ScooterNearbyHandlerFactory::class,
+                ScooterHandler::class           => ScooterHandlerFactory::class,
+                ScooterNearbyHandler::class     => ScooterNearbyHandlerFactory::class,
                 ScooterHistoryRepository::class => ScooterHistoryRepositoryFactory::class,
-                ScooterRepository::class => ScooterRepositoryFactory::class,
+                ScooterRepository::class        => ScooterRepositoryFactory::class,
             ],
             'delegators' => [
                 Application::class => [
                     RoutesDelegator::class,
-                ]
+                ],
             ],
         ];
     }

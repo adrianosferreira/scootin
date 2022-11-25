@@ -20,6 +20,7 @@ final class Version20221122200609 extends AbstractMigration
                 CREATE TABLE scooter
                 (
                     id int(11) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+                    status TINYINT(3) DEFAULT 0 NOT NULL,
                     created DATETIME default CURRENT_TIMESTAMP,  
                     updated DATETIME default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP  
                 )
@@ -32,10 +33,10 @@ final class Version20221122200609 extends AbstractMigration
                 (
                     id int(11) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
                     scooter_id int(11),
-                    latitude DECIMAL(8,6) SIGNED,
-                    longitude DECIMAL(9,6) SIGNED,
-                    status TINYINT(3),
-                    user_id int (11),
+                    latitude DECIMAL(8,6) SIGNED NOT NULL,
+                    longitude DECIMAL(9,6) SIGNED NOT NULL,
+                    status TINYINT(3) NOT NULL,
+                    user_id int (11) NOT NULL,
                     created DATETIME default CURRENT_TIMESTAMP,  
                     updated DATETIME default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP  
                 )
@@ -47,7 +48,7 @@ final class Version20221122200609 extends AbstractMigration
                 CREATE TABLE user
                 (
                     id int(11) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-                    email VARCHAR(100),
+                    email VARCHAR(100) NOT NULL,
                     created DATETIME default CURRENT_TIMESTAMP,  
                     updated DATETIME default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP  
                 )

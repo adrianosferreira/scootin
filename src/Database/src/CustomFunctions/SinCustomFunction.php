@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\CustomFunctions;
 
 use Doctrine\ORM\Query\AST\Functions\FunctionNode;
@@ -11,7 +13,7 @@ class SinCustomFunction extends FunctionNode
 {
     public function getSql(SqlWalker $sqlWalker)
     {
-        return 'sin(' . $sqlWalker->walkSimpleArithmeticExpression(
+        return 'SIN(' . $sqlWalker->walkSimpleArithmeticExpression(
             $this->simpleArithmeticExpression
         ) . ')';
     }

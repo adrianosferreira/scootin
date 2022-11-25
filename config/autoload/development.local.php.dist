@@ -15,15 +15,15 @@ declare(strict_types=1);
 return [
     'logstash' => [
         'socketConnection' => 'logstash:50000',
-        'appName' => 'core',
+        'appName'          => 'core',
     ],
-    'db' => [
+    'db'       => [
         'core' => [
             'driver' => 'pdo_mysql',
-            'host' => 'db',
+            'host'   => 'db',
             'dbname' => 'core',
-            'user' => 'admin',
-            'pass' => $_ENV['ADMIN_DB_ROOT_PASSWORD']
-        ]
-    ]
+            'user'   => 'admin',
+            'pass'   => $_ENV['ADMIN_DB_ROOT_PASSWORD'],
+        ],
+    ],
 ];

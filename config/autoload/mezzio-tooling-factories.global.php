@@ -7,13 +7,15 @@
  * removing factory definitions; other dependency types may be overwritten
  * when regenerating this file via mezzio-tooling commands.
  */
- 
+
 declare(strict_types=1);
+
+use Scooter\Handler\Factory\ScooterHistoryCreateHandlerFactory;
 
 return [
     'dependencies' => [
         'factories' => [
-            Scooter\Handler\ScooterHistoryCreateHandler::class => \Scooter\Handler\Factory\ScooterHistoryCreateHandlerFactory::class,
+            Scooter\Handler\ScooterHistoryCreateHandler::class => ScooterHistoryCreateHandlerFactory::class,
         ],
     ],
 ];

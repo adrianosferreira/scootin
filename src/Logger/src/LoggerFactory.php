@@ -14,10 +14,10 @@ final class LoggerFactory implements FactoryInterface
 {
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null): Logger
     {
-        $logger = new Logger('core');
-        $config = $container->get('config');
+        $logger        = new Logger('core');
+        $config        = $container->get('config');
         $socketHandler = new SocketHandler($config['logstash']['socketConnection']);
-        $formatter = new LogstashFormatter('core');
+        $formatter     = new LogstashFormatter('core');
         $socketHandler->setFormatter($formatter);
         $logger->pushHandler($socketHandler);
 
