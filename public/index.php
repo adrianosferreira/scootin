@@ -10,9 +10,6 @@ if (PHP_SAPI === 'cli-server' && $_SERVER['SCRIPT_FILENAME'] !== __FILE__) {
 chdir(dirname(__DIR__));
 require 'vendor/autoload.php';
 
-use App\Product;
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\ORMSetup;
 use Mezzio\Application;
 use Mezzio\MiddlewareFactory;
 use Psr\Container\ContainerInterface;
@@ -22,21 +19,6 @@ use Symfony\Component\Dotenv\Dotenv;
 
 $dotenv = new Dotenv();
 $dotenv->load(__DIR__.'/../.env');
-
-$paths = array("/path/to/entity-files");
-$isDevMode = false;
-
-// the connection configuration
-$dbParams = array(
-    'driver' => 'pdo_mysql',
-    'host' => 'db',
-    'dbname' => 'core',
-    'user' => 'admin',
-    'password' => $_ENV['ADMIN_DB_ROOT_PASSWORD'],
-);
-
-$config = ORMSetup::createAttributeMetadataConfiguration($paths, $isDevMode);
-$entityManager = EntityManager::create($dbParams, $config);
 
 /**
  * Self-called anonymous function that creates its own scope and keeps the global namespace clean.
@@ -48,8 +30,6 @@ $entityManager = EntityManager::create($dbParams, $config);
     /** @var Application $app */
     $app = $container->get(Application::class);
     $factory = $container->get(MiddlewareFactory::class);
-
-    $logger = $container->get(LoggerInterface::class);
 
     // Execute programmatic/declarative middleware pipeline and routing
     // configuration statements

@@ -24,7 +24,11 @@ return [
         // Use 'factories' for services provided by callbacks/factory classes.
         'factories' => [
             // Fully\Qualified\ClassName::class => Fully\Qualified\FactoryName::class,
-            LoggerInterface::class => LoggerFactory::class,
+        ],
+        'delegators' => [
+            \Mezzio\Application::class => [
+                \Mezzio\Container\ApplicationConfigInjectionDelegator::class,
+            ],
         ],
     ],
 ];

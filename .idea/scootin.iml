@@ -10,6 +10,8 @@
       <sourceFolder url="file://$MODULE_DIR$/src/Scooter/src" isTestSource="false" packagePrefix="Scooter\" />
       <sourceFolder url="file://$MODULE_DIR$/src/ScooterHistory/src" isTestSource="false" packagePrefix="ScooterHistory\" />
       <sourceFolder url="file://$MODULE_DIR$/src/User/src" isTestSource="false" packagePrefix="User\" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Database/src" isTestSource="false" packagePrefix="Database\" />
+      <sourceFolder url="file://$MODULE_DIR$/src/EntityManager/src" isTestSource="false" packagePrefix="EntityManager\" />
       <sourceFolder url="file://$MODULE_DIR$/src/Logger/src" isTestSource="false" packagePrefix="Logger\" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-component-installer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-stdlib" />

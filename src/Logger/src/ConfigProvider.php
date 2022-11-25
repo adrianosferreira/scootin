@@ -2,11 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Scooter;
+namespace Logger;
 
-use Mezzio\Application;
-use Scooter\Handler\ScooterHandler;
-use Scooter\Handler\ScooterHandlerFactory;
+use Psr\Log\LoggerInterface;
 
 /**
  * The configuration provider for the App module
@@ -35,13 +33,9 @@ class ConfigProvider
     public function getDependencies(): array
     {
         return [
+            'invokables' => [],
             'factories'  => [
-                ScooterHandler::class => ScooterHandlerFactory::class,
-            ],
-            'delegators' => [
-                Application::class => [
-                    RoutesDelegator::class,
-                ]
+                LoggerInterface::class => LoggerFactory::class,
             ],
         ];
     }
@@ -52,11 +46,7 @@ class ConfigProvider
     public function getTemplates(): array
     {
         return [
-            'paths' => [
-                'app'    => [__DIR__ . '/../templates/app'],
-                'error'  => [__DIR__ . '/../templates/error'],
-                'layout' => [__DIR__ . '/../templates/layout'],
-            ],
+            'paths' => [],
         ];
     }
 }

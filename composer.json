@@ -72,7 +72,9 @@
             "Scooter\\": "src/Scooter/src/",
             "ScooterHistory\\": "src/ScooterHistory/src/",
             "User\\": "src/User/src/",
-            "Logger\\": "src/Logger/src/"
+            "Logger\\": "src/Logger/src/",
+            "EntityManager\\": "src/EntityManager/src/",
+            "Database\\": "src/Database/src/"
         }
     },
     "autoload-dev": {

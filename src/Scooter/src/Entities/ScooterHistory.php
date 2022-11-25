@@ -1,6 +1,6 @@
 <?php
 
-namespace ScooterHistory\Entities;
+namespace Scooter\Entities;
 
 use Doctrine\ORM\Mapping as ORM;
 

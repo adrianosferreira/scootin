@@ -14,6 +14,9 @@ $cacheConfig = [
 ];
 
 $aggregator = new ConfigAggregator([
+    \Logger\ConfigProvider::class,
+    \Scooter\ConfigProvider::class,
+    \Database\ConfigProvider::class,
     \Mezzio\Tooling\ConfigProvider::class,
     \Mezzio\Helper\ConfigProvider::class,
     \Mezzio\Router\FastRouteRouter\ConfigProvider::class,
@@ -27,7 +30,6 @@ $aggregator = new ConfigAggregator([
 
     // Default App module config
     App\ConfigProvider::class,
-    \Scooter\ConfigProvider::class,
 
     // Load application config in a pre-defined order in such a way that local settings
     // overwrite global settings. (Loaded as first to last):

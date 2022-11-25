@@ -5,6 +5,7 @@ declare(strict_types=1);
 use Laminas\Stratigility\Middleware\ErrorHandler;
 use Mezzio\Application;
 use Mezzio\Handler\NotFoundHandler;
+use Mezzio\Helper\BodyParams\BodyParamsMiddleware;
 use Mezzio\Helper\ServerUrlMiddleware;
 use Mezzio\Helper\UrlHelperMiddleware;
 use Mezzio\MiddlewareFactory;
@@ -74,4 +75,6 @@ return function (Application $app, MiddlewareFactory $factory, ContainerInterfac
     // NotFoundHandler kicks in; alternately, you can provide other fallback
     // middleware to execute.
     $app->pipe(NotFoundHandler::class);
+
+    $app->pipe(BodyParamsMiddleware::class);
 };

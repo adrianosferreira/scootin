@@ -9,7 +9,7 @@ use Psr\Log\LoggerInterface;
 class ScooterHandlerFactory implements FactoryInterface
 {
 
-    public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
+    public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null): ScooterHandler
     {
         return new ScooterHandler($container->get(LoggerInterface::class));
     }
