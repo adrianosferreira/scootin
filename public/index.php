@@ -13,8 +13,6 @@ require 'vendor/autoload.php';
 use Mezzio\Application;
 use Mezzio\MiddlewareFactory;
 use Psr\Container\ContainerInterface;
-use Psr\Log\LoggerInterface;
-use Scooter\Entities\Scooter;
 use Symfony\Component\Dotenv\Dotenv;
 
 $dotenv = new Dotenv();

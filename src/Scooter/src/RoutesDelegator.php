@@ -6,6 +6,7 @@ namespace Scooter;
 
 use Mezzio\Application;
 use Mezzio\Helper\BodyParams\BodyParamsMiddleware;
+use OpenApi\Attributes as OA;
 use Psr\Container\ContainerInterface;
 use Scooter\Handler\ScooterHandler;
 use Scooter\Handler\ScooterHistoryCreateHandler;
@@ -17,7 +18,6 @@ class RoutesDelegator
     {
         $app = $callback();
         $app->get('/api/scooter', ScooterHandler::class, 'scooter');
-
         $app->get('/api/scooter/nearby', ScooterNearbyHandler::class, 'scooter.nearby');
 
         $app->post(

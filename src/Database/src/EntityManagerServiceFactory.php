@@ -18,19 +18,20 @@ class EntityManagerServiceFactory implements FactoryInterface
 {
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
-        $paths     = ["/path/to/entity-files"];
+        $config = $container->get('config');
+
         $isDevMode = false;
 
         // the connection configuration
         $dbParams = [
-            'driver'   => 'pdo_mysql',
-            'host'     => 'db',
-            'dbname'   => 'core',
-            'user'     => 'admin',
+            'driver'   => $config['db']['core']['driver'],
+            'host'     => $config['db']['core']['host'],
+            'dbname'   => $config['db']['core']['dbname'],
+            'user'     => $config['db']['core']['user'],
             'password' => $_ENV['ADMIN_DB_ROOT_PASSWORD'],
         ];
 
-        $config = ORMSetup::createAttributeMetadataConfiguration($paths, $isDevMode);
+        $config = ORMSetup::createAttributeMetadataConfiguration([], $isDevMode);
         $config->addCustomNumericFunction('acos', AcosCustomFunction::class);
         $config->addCustomNumericFunction('cos', CosCustomFunction::class);
         $config->addCustomNumericFunction('radians', RadiansCustomFunction::class);

@@ -80,7 +80,6 @@ services:
       - elasticsearch
 
   web:
-    image: nginx
     build: ./nginx
     depends_on:
       - logstash
@@ -95,14 +94,17 @@ services:
       - php-fpm
     networks:
       - elk
+
   php-fpm:
     build: ./php-fpm
+    container_name: php-fpm
     ports:
       - "9000:9000"
     volumes:
       - ../:/var/www/html
     networks:
       - elk
+
   db:
     image: mysql:5.7
     volumes:
@@ -114,6 +116,18 @@ services:
       MYSQL_DATABASE: core
       MYSQL_USER: admin
       MYSQL_PASSWORD: ${ADMIN_DB_ROOT_PASSWORD}
+    networks:
+      - elk
+
+  swagger-ui:
+    image: swaggerapi/swagger-ui
+    container_name: swagger-ui
+    volumes:
+      - ../:/var/www/html
+    ports:
+      - "9001:8080"
+    environment:
+      SWAGGER_JSON: /var/www/html/openapi.json
     networks:
       - elk
 

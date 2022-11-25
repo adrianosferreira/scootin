@@ -1,4 +1,7 @@
 <?php
+$dotenv = new Symfony\Component\Dotenv\Dotenv();
+$dotenv->load(__DIR__.'/.env');
+
 return [
     'table_storage' => [
         'table_name' => 'doctrine_migration_versions',

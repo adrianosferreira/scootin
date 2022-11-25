@@ -67,19 +67,19 @@ class ScooterHistory
         $requestParameters = $request->getParsedBody();
 
         $latitude = isset($requestParameters['latitude'])
-            ? filter_var($requestParameters['latitude'], FILTER_SANITIZE_FULL_SPECIAL_CHARS)
+            ? (float) $requestParameters['latitude']
             : throw new InvalidScooterHistoryRequest('The latitude field is missing');
 
         $longitude = isset($requestParameters['longitude'])
-            ? filter_var($requestParameters['longitude'], FILTER_SANITIZE_FULL_SPECIAL_CHARS)
+            ? (float) $requestParameters['longitude']
             : throw new InvalidScooterHistoryRequest('The longitude field is missing');
 
         $userId = isset($requestParameters['userId'])
-            ? filter_var($requestParameters['userId'], FILTER_SANITIZE_NUMBER_INT)
+            ? (int) $requestParameters['userId']
             : throw new InvalidScooterHistoryRequest('The userId field is missing');
 
         $status = isset($requestParameters['status'])
-            ? filter_var(Status::tryFrom($requestParameters['status'])->value, FILTER_SANITIZE_NUMBER_INT)
+            ? Status::tryFrom($requestParameters['status'])->value
             : throw new InvalidScooterHistoryRequest('The status field is missing');
 
         if ($status === null) {
@@ -87,7 +87,7 @@ class ScooterHistory
         }
 
         $scooterId = isset($requestParameters['scooterId'])
-            ? filter_var($requestParameters['scooterId'], FILTER_SANITIZE_NUMBER_INT)
+            ? (int) $requestParameters['scooterId']
             : throw new InvalidScooterHistoryRequest('The scooterId field is missing');
 
         $scooterHistory = new ScooterHistory();

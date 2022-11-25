@@ -5,7 +5,7 @@ declare(strict_types=1);
 use Mezzio\Application;
 use Mezzio\MiddlewareFactory;
 use Psr\Container\ContainerInterface;
-use Scooter\Handler\ScooterHandler;
+use OpenApi\Annotations as OA;
 
 /**
  * FastRoute route configuration

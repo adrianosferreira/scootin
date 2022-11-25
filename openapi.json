@@ -1,0 +1,19 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Scootin",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/scooter/nearby": {
+            "get": {
+                "operationId": "706b11203fac5eff92473416b86442bc",
+                "responses": {
+                    "200": {
+                        "description": "List scooters nearby you"
+                    }
+                }
+            }
+        }
+    }
+}
