@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Scooter\Handler;
 
 use Laminas\Diactoros\Response\JsonResponse;
+use OpenApi\Attributes as OA;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
@@ -20,6 +21,8 @@ class ScooterHistoryCreateHandler implements RequestHandlerInterface
     ) {
     }
 
+    #[OA\Post(path: '/api/scooter/history')]
+    #[OA\Response(response: '200', description: 'Creates a new scooter history entry')]
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
         try {

@@ -23,6 +23,9 @@ Implementation details about the REST API created for the Scootin' Aboot
   - `docker exec php-fpm composer install`
 - Run the migrations
   - `docker exec php-fpm ./vendor/bin/doctrine-migrations migrate`
-- Kibana running at http://localhost:5601 username: elastic | password: password
+
+## Available URLs
+
 - REST API running at http://localhost:8080
+- Kibana running at http://localhost:5601 username: elastic | password: password
 - Swagger Documentation running at http://localhost:9001
