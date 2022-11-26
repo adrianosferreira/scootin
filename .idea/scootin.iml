@@ -118,6 +118,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/brick/varexporter" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/mezzio/mezzio-authentication" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/mezzio/mezzio-authentication-basic" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpstan/phpstan" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -8,12 +8,14 @@ Implementation details about the REST API created for the Scootin' Aboot
 - ELK stack
 - PHPUnit
 - PHP CodeSniffer
+- PHPStan
 - Doctrine ORM
 - Doctrine Migrations
 - Docker
 - Composer
 - Swagger
 - Basic Authentication
+- Basic CI pipeline for running PHPUnit Tests and PHPStan (Github Actions)
 
 ## How to run the project
 

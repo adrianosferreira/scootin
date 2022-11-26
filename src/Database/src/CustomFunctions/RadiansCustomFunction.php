@@ -14,6 +14,7 @@ class RadiansCustomFunction extends FunctionNode
     public function getSql(SqlWalker $sqlWalker)
     {
         return 'RADIANS(' . $sqlWalker->walkSimpleArithmeticExpression(
+            /** @phpstan-ignore-next-line */
             $this->simpleArithmeticExpression
         ) . ')';
     }
@@ -23,6 +24,7 @@ class RadiansCustomFunction extends FunctionNode
         $parser->match(Lexer::T_IDENTIFIER);
         $parser->match(Lexer::T_OPEN_PARENTHESIS);
 
+        /** @phpstan-ignore-next-line */
         $this->simpleArithmeticExpression = $parser->SimpleArithmeticExpression();
 
         $parser->match(Lexer::T_CLOSE_PARENTHESIS);

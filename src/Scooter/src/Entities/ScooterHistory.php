@@ -14,23 +14,23 @@ class ScooterHistory
     #[ORM\Id]
     #[ORM\Column(type: 'integer')]
     #[ORM\GeneratedValue]
-    public readonly int $id;
+    public int $id;
 
     #[ORM\ManyToOne(targetEntity: Scooter::class)]
     #[ORM\Column(type: 'integer')]
-    public readonly int $scooter_id;
+    public int $scooter_id;
 
     #[ORM\Column(type: 'decimal')]
-    public readonly float $latitude;
+    public float $latitude;
 
     #[ORM\Column(type: 'decimal')]
-    public readonly float $longitude;
+    public float $longitude;
 
     #[ORM\Column(type: 'integer')]
-    public readonly int $status;
+    public int $status;
 
     #[ORM\Column(type: 'integer')]
-    public readonly int $user_id;
+    public int $user_id;
 
     public function setScooterId(int $scooterId): void
     {

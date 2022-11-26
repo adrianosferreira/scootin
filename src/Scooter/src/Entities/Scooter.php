@@ -13,7 +13,7 @@ class Scooter
     #[ORM\Id]
     #[ORM\Column(type: 'integer')]
     #[ORM\GeneratedValue]
-    private readonly int $id;
+    private int $id;
 
     #[ORM\Column(type: 'integer')]
     private int $status;

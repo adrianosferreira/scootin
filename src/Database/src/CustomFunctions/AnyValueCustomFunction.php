@@ -13,6 +13,7 @@ class AnyValueCustomFunction extends FunctionNode
 {
     public function getSql(SqlWalker $sqlWalker)
     {
+        /** @phpstan-ignore-next-line */
         return 'ANY_VALUE(' . $this->value->dispatch($sqlWalker) . ')';
     }
 
@@ -21,6 +22,7 @@ class AnyValueCustomFunction extends FunctionNode
         $parser->match(Lexer::T_IDENTIFIER);
         $parser->match(Lexer::T_OPEN_PARENTHESIS);
 
+        /** @phpstan-ignore-next-line */
         $this->value = $parser->StringPrimary();
 
         $parser->match(Lexer::T_CLOSE_PARENTHESIS);

@@ -1,4 +1,4 @@
-name: Unit Tests
+name: Unit Tests / PHPStan
 
 on:
   push:
@@ -35,6 +35,9 @@ jobs:
             ${{ runner.os }}-php-
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress
+
+      - name: PHPStan
+        run: vendor/bin/phpstan analyse src test
 
       - name: Unit Tests
         run: ./vendor/bin/phpunit
