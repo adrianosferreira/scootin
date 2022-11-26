@@ -13,6 +13,7 @@ Implementation details about the REST API created for the Scootin' Aboot
 - Docker
 - Composer
 - Swagger
+- Basic Authentication
 
 ## How to run the project
 
@@ -29,3 +30,7 @@ Implementation details about the REST API created for the Scootin' Aboot
 - REST API running at http://localhost:8080
 - Kibana running at http://localhost:5601 username: elastic | password: password
 - Swagger Documentation running at http://localhost:9001
+
+## Extra notes
+
+I've used basic authentication for all endpoints here and a single user is stored in the apikeys table: username is "mobile" and password is "oZq!63ydPHB0".

@@ -7,11 +7,6 @@ namespace Scooter\Entities;
 use Doctrine\ORM\Mapping as ORM;
 use Psr\Http\Message\ServerRequestInterface;
 
-use function filter_var;
-
-use const FILTER_SANITIZE_FULL_SPECIAL_CHARS;
-use const FILTER_SANITIZE_NUMBER_INT;
-
 #[ORM\Entity]
 #[ORM\Table(name: 'scooter_history')]
 class ScooterHistory

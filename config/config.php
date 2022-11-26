@@ -14,11 +14,13 @@ $cacheConfig = [
 ];
 
 $aggregator = new ConfigAggregator([
+    \Mezzio\Authentication\Basic\ConfigProvider::class,
+    \Mezzio\Authentication\ConfigProvider::class,
     \Logger\ConfigProvider::class,
     \Scooter\ConfigProvider::class,
     \Database\ConfigProvider::class,
     \Mezzio\Tooling\ConfigProvider::class,
-    \Mezzio\Helper\ConfigProvider::class,
+    ConfigProvider::class,
     \Mezzio\Router\FastRouteRouter\ConfigProvider::class,
     \Laminas\HttpHandlerRunner\ConfigProvider::class,
     // Include cache configuration

@@ -79,7 +79,8 @@ services:
     depends_on:
       - elasticsearch
 
-  web:
+  rest-api:
+    container_name: rest-api
     build: ./nginx
     depends_on:
       - logstash

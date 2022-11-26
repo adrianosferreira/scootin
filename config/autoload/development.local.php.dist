@@ -13,17 +13,30 @@
 declare(strict_types=1);
 
 return [
-    'logstash' => [
+    'logstash'       => [
         'socketConnection' => 'logstash:50000',
         'appName'          => 'core',
     ],
-    'db'       => [
+    'db'             => [
         'core' => [
             'driver' => 'pdo_mysql',
             'host'   => 'db',
             'dbname' => 'core',
             'user'   => 'admin',
             'pass'   => $_ENV['ADMIN_DB_ROOT_PASSWORD'],
+        ],
+    ],
+    'authentication' => [
+        'realm' => 'api',
+        'pdo'   => [
+            'table'    => 'apikey',
+            'field'    => [
+                'identity' => 'username',
+                'password' => 'apikey',
+            ],
+            'dsn'      => 'mysql:dbname=core;host=db',
+            'username' => 'admin',
+            'password' => $_ENV['ADMIN_DB_ROOT_PASSWORD'],
         ],
     ],
 ];

@@ -27,7 +27,7 @@ class ScooterHistoryCreateHandler implements RequestHandlerInterface
     {
         try {
             $this->scooterHistoryRepository->createFromRequest($request);
-            $this->scooterRepository->updateFromRequest($request);
+            $this->scooterRepository->updateStatusFromRequest($request);
         } catch (Throwable $exception) {
             return new JsonResponse(
                 [

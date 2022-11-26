@@ -43,6 +43,8 @@
         "laminas/laminas-servicemanager": "^3.4",
         "laminas/laminas-stdlib": "^3.6",
         "mezzio/mezzio": "^3.7",
+        "mezzio/mezzio-authentication": "^1.7",
+        "mezzio/mezzio-authentication-basic": "^1.6",
         "mezzio/mezzio-fastroute": "^3.0.3",
         "mezzio/mezzio-helpers": "^5.7",
         "monolog/monolog": "^3.2",
@@ -67,7 +69,8 @@
             "Logger\\": "src/Logger/src/",
             "EntityManager\\": "src/EntityManager/src/",
             "Database\\": "src/Database/src/",
-            "Swagger\\": "src/Swagger/src/"
+            "Swagger\\": "src/Swagger/src/",
+            "Authentication\\": "src/Authentication/src/"
         }
     },
     "autoload-dev": {

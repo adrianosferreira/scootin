@@ -14,7 +14,7 @@ class ScooterRepository
     ) {
     }
 
-    public function updateFromRequest(ServerRequestInterface $request): void
+    public function updateStatusFromRequest(ServerRequestInterface $request): void
     {
         $requestParameters = $request->getParsedBody();
 
