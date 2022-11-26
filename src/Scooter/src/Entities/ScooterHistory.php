@@ -9,6 +9,7 @@ use Psr\Http\Message\ServerRequestInterface;
 
 #[ORM\Entity]
 #[ORM\Table(name: 'scooter_history')]
+//phpcs:ignoreFile
 class ScooterHistory
 {
     #[ORM\Id]
@@ -57,6 +58,9 @@ class ScooterHistory
         $this->user_id = $userId;
     }
 
+    /**
+     * @throws InvalidScooterHistoryRequest
+     */
     public static function createFromRequest(ServerRequestInterface $request): self
     {
         $requestParameters = $request->getParsedBody();

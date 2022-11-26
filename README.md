@@ -18,6 +18,8 @@ Implementation details about the REST API created for the Scootin' Aboot
 - Swagger
 - Basic Authentication
 - Basic CI pipeline for running PHPUnit Tests and PHPStan (Github Actions)
+- Guzzle for dispatching HTTP requests
+- Symfony Command for the CLI which will act as fake mobile users
 
 ## How to run the project
 
@@ -38,3 +40,5 @@ Implementation details about the REST API created for the Scootin' Aboot
 ## Extra notes
 
 I've used basic authentication for all endpoints here and a single user is stored in the apikeys table: username is "mobile" and password is "oZq!63ydPHB0".
+
+I've written only a few unit tests for the Scooter module.

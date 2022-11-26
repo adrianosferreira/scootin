@@ -24,8 +24,21 @@ class ScooterRepository
         $this->entityManager->flush();
     }
 
-    public function getNearbyScooters(float $latitude, float $longitude)
+    public function getNearbyScootersFromRequest(ServerRequestInterface $request)
     {
+        $parameters = $request->getQueryParams();
+
+        if (! isset($parameters['latitude'])) {
+            throw new InvalidScooterRequest('The latitude field is missing');
+        }
+
+        if (! isset($parameters['longitude'])) {
+            throw new InvalidScooterRequest('The longitude field is missing');
+        }
+
+        $latitude  = (float) $parameters['latitude'];
+        $longitude = (float) $parameters['longitude'];
+
         $circularDistanceKilometers = 1;
 
         $query = $this->entityManager->createQuery(
@@ -33,7 +46,8 @@ class ScooterRepository
                 SELECT 
                     ANY_VALUE(scooter_history.scooter_id) as scooter_id, 
                     (6371 * acos( cos( radians($latitude) ) * cos( radians( ANY_VALUE(scooter_history.latitude) ) ) * 
-                    cos( radians( ANY_VALUE(scooter_history.longitude) ) - radians($longitude) ) + sin( radians($latitude) ) * 
+                    cos( radians( ANY_VALUE(scooter_history.longitude) ) 
+                             - radians($longitude) ) + sin( radians($latitude) ) * 
                     sin( radians( ANY_VALUE(scooter_history.latitude) ) ) ) )
                     AS distance,
                     ANY_VALUE(scooter_history.longitude) latitude,

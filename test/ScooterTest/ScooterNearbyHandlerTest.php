@@ -20,8 +20,10 @@ class ScooterNearbyHandlerTest extends TestCase
         $latitude  = 10.11;
         $longitude = 11.11;
 
-        $scooterRepository->method('getNearbyScooters')
-            ->with($latitude, $longitude)
+        $request = new ServerRequest(queryParams: ['latitude' => $latitude, 'longitude' => $longitude]);
+
+        $scooterRepository->method('getNearbyScootersFromRequest')
+            ->with($request)
             ->willReturn(
                 [
                     ['scooter_id' => 3],
@@ -32,9 +34,7 @@ class ScooterNearbyHandlerTest extends TestCase
 
         $subject = new ScooterNearbyHandler($scooterRepository);
 
-        $response = $subject->handle(
-            new ServerRequest(queryParams: ['latitude' => $latitude, 'longitude' => $longitude])
-        );
+        $response = $subject->handle($request);
 
         $this->assertEquals(
             json_encode([

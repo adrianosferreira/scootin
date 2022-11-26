@@ -21,8 +21,26 @@ class ScooterHistoryCreateHandler implements RequestHandlerInterface
     ) {
     }
 
-    #[OA\Post(path: '/api/scooter/history')]
-    #[OA\Response(response: '200', description: 'Creates a new scooter history entry')]
+    #[OA\Post(
+        path: '/api/scooter/history',
+        description: 'Insert new history events for a particular scooter',
+        requestBody: new OA\RequestBody(
+            content: new OA\JsonContent(
+                properties: [
+                    new OA\Property(property: 'latitude', type: 'float'),
+                    new OA\Property(property: 'longitude', type: 'float'),
+                    new OA\Property(property: 'scooterId', type: 'int'),
+                    new OA\Property(property: 'userId', type: 'int'),
+                    new OA\Property(property: 'status', type: 'int'),
+                ]
+            )
+        ),
+        responses: [
+            new OA\Response(response: 200, description: 'OK'),
+            new OA\Response(response: 401, description: 'Not allowed'),
+            new OA\Response(response: 500, description: 'Internal error'),
+        ]
+    )]
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
         try {

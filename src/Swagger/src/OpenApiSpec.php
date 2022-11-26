@@ -6,7 +6,11 @@ namespace Swagger;
 
 use OpenApi\Attributes as OA;
 
-#[OA\Info(title: "Scootin", version: "1.0")]
+#[OA\Info(
+    version: "1.0",
+    description: 'Scootin API specifications',
+    title: "Scootin"
+)]
 class OpenApiSpec
 {
 }

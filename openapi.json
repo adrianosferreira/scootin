@@ -2,25 +2,110 @@
     "openapi": "3.0.0",
     "info": {
         "title": "Scootin",
+        "description": "Scootin API specifications",
         "version": "1.0"
     },
     "paths": {
         "/api/scooter/history": {
             "post": {
+                "description": "Insert new history events for a particular scooter",
                 "operationId": "21792c5f27c11c346bd722bdb0238719",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "latitude": {
+                                        "type": "number",
+                                        "format": "float"
+                                    },
+                                    "longitude": {
+                                        "type": "number",
+                                        "format": "float"
+                                    },
+                                    "scooterId": {
+                                        "type": "integer"
+                                    },
+                                    "userId": {
+                                        "type": "integer"
+                                    },
+                                    "status": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "200": {
-                        "description": "Creates a new scooter history entry"
+                        "description": "OK"
+                    },
+                    "401": {
+                        "description": "Not allowed"
+                    },
+                    "500": {
+                        "description": "Internal error"
                     }
                 }
             }
         },
         "/api/scooter/nearby": {
             "get": {
+                "description": "Find scooters that are nearby a particular geographical position (up to 1 km)",
                 "operationId": "706b11203fac5eff92473416b86442bc",
+                "parameters": [
+                    {
+                        "name": "latitude",
+                        "in": null,
+                        "required": true
+                    },
+                    {
+                        "name": "longitude",
+                        "in": null,
+                        "required": true
+                    }
+                ],
                 "responses": {
                     "200": {
-                        "description": "List scooters nearby you"
+                        "description": "List of scooters nearby.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "result": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "scooter_id": {
+                                                        "type": "integer"
+                                                    },
+                                                    "distance": {
+                                                        "description": "Distance in KM",
+                                                        "type": "number",
+                                                        "format": "float"
+                                                    },
+                                                    "latitude": {
+                                                        "type": "number",
+                                                        "format": "float"
+                                                    },
+                                                    "longitude": {
+                                                        "type": "number",
+                                                        "format": "float"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Request missing parameters"
                     }
                 }
             }

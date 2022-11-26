@@ -11,6 +11,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/ScooterHistory/src" isTestSource="false" packagePrefix="ScooterHistory\" />
       <sourceFolder url="file://$MODULE_DIR$/src/User/src" isTestSource="false" packagePrefix="User\" />
       <sourceFolder url="file://$MODULE_DIR$/src/Authentication/src" isTestSource="false" packagePrefix="Authentication\" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Command/src" isTestSource="false" packagePrefix="Command\" />
       <sourceFolder url="file://$MODULE_DIR$/src/Database/src" isTestSource="false" packagePrefix="Database\" />
       <sourceFolder url="file://$MODULE_DIR$/src/EntityManager/src" isTestSource="false" packagePrefix="EntityManager\" />
       <sourceFolder url="file://$MODULE_DIR$/src/Logger/src" isTestSource="false" packagePrefix="Logger\" />
@@ -119,6 +120,11 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/mezzio/mezzio-authentication" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/mezzio/mezzio-authentication-basic" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpstan/phpstan" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-client" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/ralouphie/getallheaders" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/promises" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/guzzle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/psr7" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
