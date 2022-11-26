@@ -1,5 +1,7 @@
 # Scootin' Aboot
 
+[![Unit Tests / PHPStan](https://github.com/adrianosferreira/scootin/actions/workflows/php.yml/badge.svg)](https://github.com/adrianosferreira/scootin/actions/workflows/php.yml)
+
 Implementation details about the REST API created for the Scootin' Aboot
 
 ## Summary of technologies used:
