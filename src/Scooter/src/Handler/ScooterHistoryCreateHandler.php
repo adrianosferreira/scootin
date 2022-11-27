@@ -40,7 +40,7 @@ class ScooterHistoryCreateHandler implements RequestHandlerInterface
                 description: 'The id of the scooter.',
                 in: 'path',
                 required: true
-            )
+            ),
         ],
         responses: [
             new OA\Response(response: 200, description: 'OK'),

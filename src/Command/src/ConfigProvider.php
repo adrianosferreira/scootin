@@ -19,12 +19,12 @@ class ConfigProvider
      *
      * @return array<mixed>
      */
-    public function __invoke() : array
+    public function __invoke(): array
     {
         return [
             'dependencies' => $this->getDependencies(),
             'templates'    => $this->getTemplates(),
-            'laminas-cli' => [
+            'laminas-cli'  => [
                 'commands' => [
                     'fake-mobile-users' => FakeMobileUsers::class,
                 ],
@@ -37,11 +37,10 @@ class ConfigProvider
      *
      * @return array<mixed>
      */
-    public function getDependencies() : array
+    public function getDependencies(): array
     {
         return [
-            'invokables' => [
-            ],
+            'invokables' => [],
             'factories'  => [
                 FakeMobileUsers::class => FakeMobileUsersFactory::class,
             ],
@@ -53,11 +52,11 @@ class ConfigProvider
      *
      * @return array<mixed>
      */
-    public function getTemplates() : array
+    public function getTemplates(): array
     {
         return [
             'paths' => [
-                'command'    => [__DIR__ . '/../templates/'],
+                'command' => [__DIR__ . '/../templates/'],
             ],
         ];
     }

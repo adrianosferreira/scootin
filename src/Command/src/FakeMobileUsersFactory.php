@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Command;
 
 use GuzzleHttp\Client;
@@ -8,7 +10,6 @@ use Psr\Container\ContainerInterface;
 
 class FakeMobileUsersFactory implements FactoryInterface
 {
-
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         return new FakeMobileUsers('fake-mobile-users', new Client());

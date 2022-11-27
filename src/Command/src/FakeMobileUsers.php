@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Command;
 
 use GuzzleHttp\ClientInterface;
@@ -9,14 +11,20 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
+use function array_rand;
+use function json_decode;
+use function pi;
+use function sleep;
+use function sprintf;
+
 class FakeMobileUsers extends Command
 {
     private const USER_REST_TIME_IN_SECONDS_BETWEEN_TRIPS = 5;
-    private const SCOOTER_POSITION_UPDATE_IN_SECONDS = 3;
+    private const SCOOTER_POSITION_UPDATE_IN_SECONDS      = 3;
 
     private ClientInterface $client;
 
-    public function __construct(string $name = null, ClientInterface $client)
+    public function __construct(?string $name = null, ClientInterface $client)
     {
         parent::__construct($name);
         $this->client = $client;
@@ -29,7 +37,7 @@ class FakeMobileUsers extends Command
         $mobileUserId = $input->getOption('user-id') ?: 1;
         $mobileUser   = [
             'lat' => 48.14512148225868,
-            'lon' => 11.481291644976924
+            'lon' => 11.481291644976924,
         ];
 
         while (true) {
@@ -43,14 +51,14 @@ class FakeMobileUsers extends Command
                 [
                     'auth' => [
                         'mobile',
-                        'oZq!63ydPHB0'
-                    ]
+                        'oZq!63ydPHB0',
+                    ],
                 ]
             );
 
             $scooters = json_decode($response->getBody()->getContents(), true);
 
-            if (!($scooters['result'] ?? [])) {
+            if (! ($scooters['result'] ?? [])) {
                 $output->writeln('<error>No scooter nearby, sorry.</error>');
                 return 0;
             }
@@ -63,7 +71,7 @@ class FakeMobileUsers extends Command
 
             $randomScooterId = array_rand($scooters['result'] ?? []);
 
-            if (!isset($scooters['result'][$randomScooterId])) {
+            if (! isset($scooters['result'][$randomScooterId])) {
                 $output->writeln('<error>No scooter nearby, sorry.</error>');
                 return 0;
             }
@@ -153,23 +161,23 @@ class FakeMobileUsers extends Command
             [
                 'auth' => [
                     'mobile',
-                    'oZq!63ydPHB0'
+                    'oZq!63ydPHB0',
                 ],
                 'json' => [
-                    'latitude' => $scooterLatitude,
+                    'latitude'  => $scooterLatitude,
                     'longitude' => $scooterLongitude,
-                    'userId' => $mobileUserId,
-                    'status' => $status->value,
+                    'userId'    => $mobileUserId,
+                    'status'    => $status->value,
                     'scooterId' => $scooterId,
-                ]
+                ],
             ]
         );
     }
 
     private function moveScooter(float $currentLatitude): float
     {
-        $earth = 6378.137; //radius of the earth in kilometer
-        $pi = pi();
+        $earth            = 6378.137; //radius of the earth in kilometer
+        $pi               = pi();
         $oneMeterInDegree = (1 / ((2 * $pi / 360) * $earth)) / 1000;  //1 meter in degree
 
         $directions      = ['forward', 'backward'];
@@ -178,12 +186,9 @@ class FakeMobileUsers extends Command
         $meters = 3;
 
         if ($directions[$movingDirection] === 'forward') {
-            $newLatitude = $currentLatitude + ($meters * $oneMeterInDegree);
-            return $newLatitude;
+            return $currentLatitude + ($meters * $oneMeterInDegree);
         }
 
-        $newLatitude = $currentLatitude - ($meters * $oneMeterInDegree);
-
-        return $newLatitude;
+        return $currentLatitude - ($meters * $oneMeterInDegree);
     }
 }

@@ -63,12 +63,12 @@
                 "parameters": [
                     {
                         "name": "latitude",
-                        "in": null,
+                        "in": "query",
                         "required": true
                     },
                     {
                         "name": "longitude",
-                        "in": null,
+                        "in": "query",
                         "required": true
                     }
                 ],

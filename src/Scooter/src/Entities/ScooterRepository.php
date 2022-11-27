@@ -23,11 +23,11 @@ class ScooterRepository
 
         $scooter = $this->entityManager->getRepository(Scooter::class)->find($request->getAttribute('id'));
 
-        if (!$scooter) {
+        if (! $scooter) {
             throw new InvalidScooterRequest('The scooter cannot be find');
         }
 
-        if (!isset($requestParameters['status'])) {
+        if (! isset($requestParameters['status'])) {
             throw new InvalidScooterRequest('The status field is missing');
         }
 
