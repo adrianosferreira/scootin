@@ -2,10 +2,11 @@
 
 [![Unit Tests / PHPStan](https://github.com/adrianosferreira/scootin/actions/workflows/php.yml/badge.svg)](https://github.com/adrianosferreira/scootin/actions/workflows/php.yml)
 
-Implementation details about the REST API created for the Scootin' Aboot
+Implementation details about the REST API as well as some extra tools created for the Scootin' Aboot.
 
 ## Summary of technologies used:
 
+- PHP 8.1
 - Laminas framework
 - ELK stack
 - PHPUnit

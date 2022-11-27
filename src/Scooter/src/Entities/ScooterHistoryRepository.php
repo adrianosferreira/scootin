@@ -19,7 +19,7 @@ class ScooterHistoryRepository
     ) {
     }
 
-    public function createFromRequest(ServerRequestInterface $request): void
+    public function saveFromRequest(ServerRequestInterface $request): void
     {
         try {
             $scooterHistory = ScooterHistory::createFromRequest($request);

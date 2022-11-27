@@ -78,7 +78,7 @@ class ScooterHistory
             : throw new InvalidScooterHistoryRequest('The userId field is missing');
 
         $status = isset($requestParameters['status'])
-            ? Status::tryFrom($requestParameters['status'])->value
+            ? Status::tryFrom($requestParameters['status'])
             : throw new InvalidScooterHistoryRequest('The status field is missing');
 
         if ($status === null) {
@@ -88,7 +88,7 @@ class ScooterHistory
         $scooterId = (int) $request->getAttribute('id');
 
         $scooterHistory = new ScooterHistory();
-        $scooterHistory->setStatus($status);
+        $scooterHistory->setStatus($status->value);
         $scooterHistory->setUserId($userId);
         $scooterHistory->setLatitude($latitude);
         $scooterHistory->setLongitude($longitude);

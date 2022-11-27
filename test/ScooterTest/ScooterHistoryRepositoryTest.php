@@ -31,6 +31,6 @@ class ScooterHistoryRepositoryTest extends TestCase
             ->with(ScooterHistory::createFromRequest($serverRequest));
 
         $subject = new ScooterHistoryRepository(new NullLogger(), $entityManager);
-        $subject->createFromRequest($serverRequest);
+        $subject->saveFromRequest($serverRequest);
     }
 }

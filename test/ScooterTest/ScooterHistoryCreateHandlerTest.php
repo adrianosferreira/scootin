@@ -29,7 +29,7 @@ class ScooterHistoryCreateHandlerTest extends TestCase
         );
 
         $scooterRepository->expects($this->once())->method('updateStatusFromRequest')->with($request);
-        $scooterHistoryRepository->expects($this->once())->method('createFromRequest')->with($request);
+        $scooterHistoryRepository->expects($this->once())->method('saveFromRequest')->with($request);
 
         $subject  = new ScooterHistoryCreateHandler($scooterHistoryRepository, $scooterRepository);
         $response = $subject->handle($request);
@@ -40,7 +40,7 @@ class ScooterHistoryCreateHandlerTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testReturnsErrorWhenScooterOrHistoryCouldNotBeUpdated()
+    public function testReturnsErrorWhenScooterOrHistoryCouldNotBeUpdated(): void
     {
         $scooterHistoryRepository = $this->createMock(ScooterHistoryRepository::class);
         $scooterRepository        = $this->createMock(ScooterRepository::class);
@@ -55,7 +55,7 @@ class ScooterHistoryCreateHandlerTest extends TestCase
             ]
         );
 
-        $scooterHistoryRepository->expects($this->once())->method('createFromRequest')->with($request)
+        $scooterHistoryRepository->expects($this->once())->method('saveFromRequest')->with($request)
             ->willReturnCallback(fn () => throw new Exception());
 
         $subject  = new ScooterHistoryCreateHandler($scooterHistoryRepository, $scooterRepository);

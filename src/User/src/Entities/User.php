@@ -13,10 +13,10 @@ class User
     #[ORM\Id]
     #[ORM\Column(type: 'integer')]
     #[ORM\GeneratedValue]
-    private int $id;
+    public int $id;
 
     #[ORM\Column(type: 'string')]
-    private string $email;
+    public string $email;
 
     public function setEmail(string $email): void
     {

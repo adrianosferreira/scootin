@@ -14,17 +14,29 @@ class ScooterRepository
     ) {
     }
 
+    /**
+     * @throws InvalidScooterRequest
+     */
     public function updateStatusFromRequest(ServerRequestInterface $request): void
     {
         $requestParameters = $request->getParsedBody();
 
         $scooter = $this->entityManager->getRepository(Scooter::class)->find($request->getAttribute('id'));
+
+        if (!$scooter) {
+            throw new InvalidScooterRequest('The scooter cannot be find');
+        }
+
+        if (!isset($requestParameters['status'])) {
+            throw new InvalidScooterRequest('The status field is missing');
+        }
+
         $scooter->setStatus($requestParameters['status']);
 
         $this->entityManager->flush();
     }
 
-    public function getNearbyScootersFromRequest(ServerRequestInterface $request)
+    public function getNearbyScootersFromRequest(ServerRequestInterface $request): mixed
     {
         $parameters = $request->getQueryParams();
 

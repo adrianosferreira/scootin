@@ -23,7 +23,7 @@ class ScooterHistoryCreateHandler implements RequestHandlerInterface
 
     #[OA\Post(
         path: '/api/scooter/{id}/history',
-        description: 'Insert new history events for a particular scooter',
+        description: 'Insert new history events for a particular scooter.',
         requestBody: new OA\RequestBody(
             content: new OA\JsonContent(
                 properties: [
@@ -50,7 +50,7 @@ class ScooterHistoryCreateHandler implements RequestHandlerInterface
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
         try {
-            $this->scooterHistoryRepository->createFromRequest($request);
+            $this->scooterHistoryRepository->saveFromRequest($request);
             $this->scooterRepository->updateStatusFromRequest($request);
         } catch (Throwable $exception) {
             return new JsonResponse(

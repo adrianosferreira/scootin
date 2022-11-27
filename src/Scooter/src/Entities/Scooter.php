@@ -13,10 +13,10 @@ class Scooter
     #[ORM\Id]
     #[ORM\Column(type: 'integer')]
     #[ORM\GeneratedValue]
-    private int $id;
+    public int $id;
 
     #[ORM\Column(type: 'integer')]
-    private int $status;
+    public int $status;
 
     public function setId(int $id): void
     {
