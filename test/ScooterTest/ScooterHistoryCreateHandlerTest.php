@@ -37,9 +37,6 @@ class ScooterHistoryCreateHandlerTest extends TestCase
         $this->assertEquals(200, $response->getStatusCode());
     }
 
-    /**
-     * @throws Exception
-     */
     public function testReturnsErrorWhenScooterOrHistoryCouldNotBeUpdated(): void
     {
         $scooterHistoryRepository = $this->createMock(ScooterHistoryRepository::class);

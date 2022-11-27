@@ -23,12 +23,13 @@ class ScooterHistoryRepositoryTest extends TestCase
                 'longitude' => 11.12,
                 'userId'    => 123,
                 'status'    => 1,
-                'scooterId' => 123,
             ]
         );
 
         $entityManager->expects($this->once())->method('persist')
             ->with(ScooterHistory::createFromRequest($serverRequest));
+
+        $entityManager->expects($this->once())->method('flush');
 
         $subject = new ScooterHistoryRepository(new NullLogger(), $entityManager);
         $subject->saveFromRequest($serverRequest);

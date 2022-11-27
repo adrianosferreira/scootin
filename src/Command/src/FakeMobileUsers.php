@@ -11,6 +11,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class FakeMobileUsers extends Command
 {
+    private const USER_REST_TIME_IN_SECONDS_BETWEEN_TRIPS = 5;
+    private const SCOOTER_POSITION_UPDATE_IN_SECONDS = 3;
+
     private ClientInterface $client;
 
     public function __construct(string $name = null, ClientInterface $client)
@@ -88,7 +91,7 @@ class FakeMobileUsers extends Command
             $newLatitude = $chosenScooter['latitude'];
 
             for ($i = 0; $i < 3; $i++) {
-                sleep(3);
+                sleep(self::SCOOTER_POSITION_UPDATE_IN_SECONDS);
 
                 $newLatitude = $this->moveScooter($newLatitude);
 
@@ -131,7 +134,7 @@ class FakeMobileUsers extends Command
                 )
             );
 
-            sleep(5);
+            sleep(self::USER_REST_TIME_IN_SECONDS_BETWEEN_TRIPS);
 
             $output->writeln(sprintf('<info>User %d is ready for another trip!</info>', $mobileUserId));
         }

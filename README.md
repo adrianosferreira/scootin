@@ -66,3 +66,5 @@ Plus you can monitor on Kibana what's going on:
 I've used basic authentication for all endpoints here and a single user is stored in the apikeys table: username is "mobile" and password is "oZq!63ydPHB0".
 
 I've written only a few unit tests for the Scooter module.
+
+Migrations are located in `migrations/`

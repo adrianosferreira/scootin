@@ -25,6 +25,7 @@ class ScooterRepositoryTest extends TestCase
         $entityRepository = $this->createMock(EntityRepository::class);
 
         $entityManager->method('getRepository')->with(Scooter::class)->willReturn($entityRepository);
+        $entityManager->expects($this->once())->method('flush');
 
         $entityRepository->method('find')->with(123)->willReturn($scooter);
 

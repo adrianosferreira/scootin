@@ -8,7 +8,7 @@ use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;
 
 /**
- * Auto-generated Migration: Please modify to your needs!
+ * Creates basic authentication table and populates it
  */
 final class Version20221126114921 extends AbstractMigration
 {

@@ -8,7 +8,7 @@ use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;
 
 /**
- * Auto-generated Migration: Please modify to your needs!
+ * Creates the tables scooter, user, and scooter_history
  */
 final class Version20221122200609 extends AbstractMigration
 {
