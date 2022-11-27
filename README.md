@@ -67,4 +67,4 @@ I've used basic authentication for all endpoints here and a single user is store
 
 I've written only a few unit tests for the Scooter module.
 
-Migrations are located in `migrations/`
+Migrations are located in `migrations/`.
