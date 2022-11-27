@@ -79,10 +79,10 @@ class FakeMobileUsers extends Command
             $chosenScooter = $scooters['result'][$randomScooterId];
 
             $this->updateScooterHistory(
-                $chosenScooter['latitude'],
-                $chosenScooter['longitude'],
-                $mobileUserId,
-                $chosenScooter['scooter_id'],
+                (float) $chosenScooter['latitude'],
+                (float) $chosenScooter['longitude'],
+                (int) $mobileUserId,
+                (int) $chosenScooter['scooter_id'],
                 Status::OCCUPIED,
             );
 
@@ -101,13 +101,13 @@ class FakeMobileUsers extends Command
             for ($i = 0; $i < 3; $i++) {
                 sleep(self::SCOOTER_POSITION_UPDATE_IN_SECONDS);
 
-                $newLatitude = $this->moveScooter($newLatitude);
+                $newLatitude = $this->moveScooter((float) $newLatitude);
 
                 $this->updateScooterHistory(
                     $newLatitude,
-                    $chosenScooter['longitude'],
-                    $mobileUserId,
-                    $chosenScooter['scooter_id'],
+                    (float) $chosenScooter['longitude'],
+                    (int) $mobileUserId,
+                    (int) $chosenScooter['scooter_id'],
                     Status::OCCUPIED,
                 );
 
@@ -126,9 +126,9 @@ class FakeMobileUsers extends Command
 
             $this->updateScooterHistory(
                 $newLatitude,
-                $chosenScooter['longitude'],
-                $mobileUserId,
-                $chosenScooter['scooter_id'],
+                (float) $chosenScooter['longitude'],
+                (int) $mobileUserId,
+                (int) $chosenScooter['scooter_id'],
                 Status::FREE,
             );
 
