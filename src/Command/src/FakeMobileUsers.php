@@ -33,7 +33,7 @@ class FakeMobileUsers extends Command
             $response = $this->client->request(
                 'GET',
                 sprintf(
-                    'http://localhost:8080/api/scooter/nearby?latitude=%s&longitude=%s',
+                    'http://localhost:8080/api/scooters/nearby?latitude=%s&longitude=%s',
                     $mobileUser['lat'],
                     $mobileUser['lon']
                 ),
@@ -146,7 +146,7 @@ class FakeMobileUsers extends Command
     ): void {
         $this->client->request(
             'POST',
-            'http://localhost:8080/api/scooter/history',
+            sprintf('http://localhost:8080/api/scooter/%d/history', $scooterId),
             [
                 'auth' => [
                     'mobile',

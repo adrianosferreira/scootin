@@ -8,6 +8,7 @@ Implementation details about the REST API as well as some extra tools created fo
 
 - PHP 8.1
 - Laminas framework
+- MySQL
 - ELK stack
 - PHPUnit
 - PHP CodeSniffer
@@ -24,7 +25,17 @@ Implementation details about the REST API as well as some extra tools created fo
 
 ## How to run the project
 
+The easiest way is with Make command:
+
 - Clone the project 
+- Inside the folder run `make build` it will do these things for you:
+  - Containers will be built
+  - Composer will run
+  - Migrations will run
+
+The other way is:
+
+- Inside the folder
 - Build and start docker containers
   - `docker-compose up -d`
 - Run composer
