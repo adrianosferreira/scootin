@@ -38,7 +38,8 @@ class ScooterHistoryCreateHandler implements RequestHandlerInterface
             new OA\Parameter(
                 name: 'id',
                 description: 'The id of the scooter.',
-                in: 'path'
+                in: 'path',
+                required: true
             )
         ],
         responses: [

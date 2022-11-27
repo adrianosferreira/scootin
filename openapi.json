@@ -8,13 +8,14 @@
     "paths": {
         "/api/scooter/{id}/history": {
             "post": {
-                "description": "Insert new history events for a particular scooter",
+                "description": "Insert new history events for a particular scooter.",
                 "operationId": "19c1d4f517ab5a5219ed26cca0d3c87c",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "The id of the scooter."
+                        "description": "The id of the scooter.",
+                        "required": true
                     }
                 ],
                 "requestBody": {
@@ -57,7 +58,7 @@
         },
         "/api/scooters/nearby": {
             "get": {
-                "description": "Find scooters that are nearby a particular geographical position (up to 1 km)",
+                "description": "Find scooters that are nearby a particular geographical position (up to 1 km).",
                 "operationId": "c1b56d152be12205e8755bb6d249247d",
                 "parameters": [
                     {
