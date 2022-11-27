@@ -32,7 +32,7 @@ final class Version20221126114921 extends AbstractMigration
             <<<SQL
                 INSERT INTO apikey (
                     username, apikey
-                ) VALUES ('mobile', '$2y$10$qLXfumGQ1rUV5MbmKw3GSOHCDsfUEYay6ulQAOV4pcIQX4orfmhNe')
+                ) VALUES ('mobile', '$2y$10\$qLXfumGQ1rUV5MbmKw3GSOHCDsfUEYay6ulQAOV4pcIQX4orfmhNe')
             SQL
         );
     }

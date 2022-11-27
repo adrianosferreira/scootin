@@ -15,10 +15,10 @@ class RoutesDelegator
     public function __invoke(ContainerInterface $container, string $serviceName, callable $callback): Application
     {
         $app = $callback();
-        $app->get('/api/scooter/nearby', ScooterNearbyHandler::class, 'scooter.nearby');
+        $app->get('/api/scooters/nearby', ScooterNearbyHandler::class, 'scooter.nearby');
 
         $app->post(
-            '/api/scooter/history',
+            '/api/scooter/{id:\d+}/history',
             [
                 BodyParamsMiddleware::class,
                 ScooterHistoryCreateHandler::class,

@@ -18,7 +18,7 @@ class ScooterRepository
     {
         $requestParameters = $request->getParsedBody();
 
-        $scooter = $this->entityManager->getRepository(Scooter::class)->find($requestParameters['scooterId']);
+        $scooter = $this->entityManager->getRepository(Scooter::class)->find($request->getAttribute('id'));
         $scooter->setStatus($requestParameters['status']);
 
         $this->entityManager->flush();
@@ -50,15 +50,15 @@ class ScooterRepository
                              - radians($longitude) ) + sin( radians($latitude) ) * 
                     sin( radians( ANY_VALUE(scooter_history.latitude) ) ) ) )
                     AS distance,
-                    ANY_VALUE(scooter_history.longitude) latitude,
-                    ANY_VALUE(scooter_history.latitude) longitude
+                    ANY_VALUE(scooter_history.longitude) longitude,
+                    ANY_VALUE(scooter_history.latitude) latitude
                 FROM
                     Scooter\Entities\Scooter as scooter
                 LEFT JOIN
                     Scooter\Entities\ScooterHistory AS scooter_history
                 WITH scooter.id = scooter_history.scooter_id
                 WHERE 
-                    scooter.status = 1
+                    scooter.status = 0
                 GROUP BY scooter_history.scooter_id
                 HAVING
                     distance <= $circularDistanceKilometers

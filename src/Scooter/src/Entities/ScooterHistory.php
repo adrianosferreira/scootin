@@ -85,9 +85,7 @@ class ScooterHistory
             throw new InvalidScooterHistoryRequest('The status field is invalid');
         }
 
-        $scooterId = isset($requestParameters['scooterId'])
-            ? (int) $requestParameters['scooterId']
-            : throw new InvalidScooterHistoryRequest('The scooterId field is missing');
+        $scooterId = (int) $request->getAttribute('id');
 
         $scooterHistory = new ScooterHistory();
         $scooterHistory->setStatus($status);

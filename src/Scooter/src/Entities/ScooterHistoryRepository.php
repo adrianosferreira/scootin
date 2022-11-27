@@ -34,9 +34,12 @@ class ScooterHistoryRepository
 
         $this->logger->info(
             sprintf(
-                'New history entry created for scooter #%d and user #%d',
+                'New history entry created for scooter %d and user %d and status %s: %s, %s',
                 $scooterHistory->scooter_id,
-                $scooterHistory->user_id
+                $scooterHistory->user_id,
+                Status::from($scooterHistory->status)->name,
+                $scooterHistory->latitude,
+                $scooterHistory->longitude,
             )
         );
     }

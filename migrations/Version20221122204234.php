@@ -19,7 +19,7 @@ final class Version20221122204234 extends AbstractMigration
             <<<SQL
                 INSERT INTO scooter (
                     id
-                ) VALUES (1),(2),(3),(4),(5),(6)
+                ) VALUES (1),(2),(3),(4),(5),(6),(7)
             SQL
         );
 
@@ -42,12 +42,13 @@ final class Version20221122204234 extends AbstractMigration
                     status,
                     user_id                         
                 ) VALUES 
-                    (1, 10.111, 21.2122, 1, 1),
-                    (2, 11.111, 22.2122, 1, 2),
-                    (3, 12.111, 23.2122, 1, 3),
-                    (4, 13.111, 24.2122, 1, 1),
-                    (5, 14.111, 25.2122, 1, 2),
-                    (6, 15.111, 26.2122, 1, 3)
+                    (1, 48.14519672955476, 11.479293307643067, 0, 0),
+                    (2, 48.14517867021376, 11.479780486947936, 0, 0),
+                    (3, 48.14514857129798, 11.480655605328902, 0, 0),
+                    (4, 48.14512148225868, 11.48131419957437, 0, 0),
+                    (5, 48.145097403100635, 11.481954750141881, 0, 0),
+                    (6, 48.14506429423986, 11.482532147836542, 0, 0),
+                    (7, 48.14500108635551, 11.483429820814955, 0, 0)
             SQL
         );
 
@@ -55,6 +56,7 @@ final class Version20221122204234 extends AbstractMigration
 
     public function down(Schema $schema): void
     {
-        $this->addSql('DELETE FROM scooter WHERE id IN (1, 2, 3, 4, 5, 6)');
+        $this->addSql('DELETE FROM scooter WHERE id IN (1, 2, 3, 4, 5, 6, 7)');
+        $this->addSql('DELETE FROM scooter_history WHERE id scooter_id (1, 2, 3, 4, 5, 6, 7)');
     }
 }

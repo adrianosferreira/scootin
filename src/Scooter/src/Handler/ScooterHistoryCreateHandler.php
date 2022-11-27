@@ -22,19 +22,25 @@ class ScooterHistoryCreateHandler implements RequestHandlerInterface
     }
 
     #[OA\Post(
-        path: '/api/scooter/history',
+        path: '/api/scooter/{id}/history',
         description: 'Insert new history events for a particular scooter',
         requestBody: new OA\RequestBody(
             content: new OA\JsonContent(
                 properties: [
                     new OA\Property(property: 'latitude', type: 'float'),
                     new OA\Property(property: 'longitude', type: 'float'),
-                    new OA\Property(property: 'scooterId', type: 'int'),
                     new OA\Property(property: 'userId', type: 'int'),
                     new OA\Property(property: 'status', type: 'int'),
                 ]
             )
         ),
+        parameters: [
+            new OA\Parameter(
+                name: 'id',
+                description: 'The id of the scooter.',
+                in: 'path'
+            )
+        ],
         responses: [
             new OA\Response(response: 200, description: 'OK'),
             new OA\Response(response: 401, description: 'Not allowed'),

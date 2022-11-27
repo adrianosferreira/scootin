@@ -37,6 +37,18 @@ Implementation details about the REST API created for the Scootin' Aboot
 - Kibana running at http://localhost:5601 username: elastic | password: password
 - Swagger Documentation running at http://localhost:9001
 
+## The CLI to dispatch fake clients
+
+There is a CLI which you can use in order to dispatch some fake clients. You can run as many instances as you need in separated terminal windows.
+
+You can use the command `./vendor/bin/laminas fake-mobile-users --user-id=3` and then watch it running:
+
+![image](documentation/cli.png)
+
+Plus you can monitor on Kibana what's going on:
+
+![image](documentation/kibana.png)
+
 ## Extra notes
 
 I've used basic authentication for all endpoints here and a single user is stored in the apikeys table: username is "mobile" and password is "oZq!63ydPHB0".

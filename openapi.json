@@ -6,10 +6,17 @@
         "version": "1.0"
     },
     "paths": {
-        "/api/scooter/history": {
+        "/api/scooter/{id}/history": {
             "post": {
                 "description": "Insert new history events for a particular scooter",
-                "operationId": "21792c5f27c11c346bd722bdb0238719",
+                "operationId": "19c1d4f517ab5a5219ed26cca0d3c87c",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The id of the scooter."
+                    }
+                ],
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -22,9 +29,6 @@
                                     "longitude": {
                                         "type": "number",
                                         "format": "float"
-                                    },
-                                    "scooterId": {
-                                        "type": "integer"
                                     },
                                     "userId": {
                                         "type": "integer"
@@ -51,10 +55,10 @@
                 }
             }
         },
-        "/api/scooter/nearby": {
+        "/api/scooters/nearby": {
             "get": {
                 "description": "Find scooters that are nearby a particular geographical position (up to 1 km)",
-                "operationId": "706b11203fac5eff92473416b86442bc",
+                "operationId": "c1b56d152be12205e8755bb6d249247d",
                 "parameters": [
                     {
                         "name": "latitude",
