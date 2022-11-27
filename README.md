@@ -7,6 +7,7 @@ Implementation details about the REST API as well as some extra tools created fo
 ## Summary of technologies used:
 
 - PHP 8.1
+- Nginx
 - Laminas framework
 - MySQL
 - ELK stack
@@ -57,7 +58,7 @@ You can use the command `./vendor/bin/laminas fake-mobile-users --user-id=3` and
 
 ![image](documentation/cli.png)
 
-Plus you can monitor on Kibana what's going on:
+Plus you can monitor on Kibana what's going on (all the logs from the application can be seen at Kibana):
 
 ![image](documentation/kibana.png)
 
