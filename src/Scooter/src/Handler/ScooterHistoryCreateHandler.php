@@ -24,6 +24,7 @@ class ScooterHistoryCreateHandler implements RequestHandlerInterface
     #[OA\Post(
         path: '/api/scooter/{id}/history',
         description: 'Insert new history events for a particular scooter.',
+        security: ['basicAuth'],
         requestBody: new OA\RequestBody(
             content: new OA\JsonContent(
                 properties: [

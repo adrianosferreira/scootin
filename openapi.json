@@ -53,7 +53,12 @@
                     "500": {
                         "description": "Internal error"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "scalar": "basicAuth"
+                    }
+                ]
             }
         },
         "/api/scooters/nearby": {
@@ -112,7 +117,12 @@
                     "400": {
                         "description": "Request missing parameters"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "scalar": "basicAuth"
+                    }
+                ]
             }
         }
     }

@@ -24,7 +24,7 @@ class FakeMobileUsers extends Command
 
     private ClientInterface $client;
 
-    public function __construct(?string $name = null, ClientInterface $client)
+    public function __construct(string $name = null, ClientInterface $client)
     {
         parent::__construct($name);
         $this->client = $client;

@@ -22,6 +22,7 @@ class ScooterNearbyHandler implements RequestHandlerInterface
     #[OA\Get(
         path: '/api/scooters/nearby',
         description: 'Find scooters that are nearby a particular geographical position (up to 1 km).',
+        security: ['basicAuth'],
         parameters: [
             new OA\Parameter(name: 'latitude', in: 'query', required: true),
             new OA\Parameter(name: 'longitude', in: 'query', required: true),
