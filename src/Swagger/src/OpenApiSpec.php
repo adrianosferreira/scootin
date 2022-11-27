@@ -8,7 +8,7 @@ use OpenApi\Attributes as OA;
 
 #[OA\Info(
     version: "1.0",
-    description: 'Scootin API specifications',
+    description: 'Scootin REST API specifications.',
     title: "Scootin"
 )]
 class OpenApiSpec

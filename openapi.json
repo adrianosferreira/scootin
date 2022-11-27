@@ -2,7 +2,7 @@
     "openapi": "3.0.0",
     "info": {
         "title": "Scootin",
-        "description": "Scootin API specifications",
+        "description": "Scootin REST API specifications.",
         "version": "1.0"
     },
     "paths": {
