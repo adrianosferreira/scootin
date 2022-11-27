@@ -28,7 +28,8 @@ class ScooterRepositoryTest extends TestCase
 
         $entityRepository->method('find')->with(123)->willReturn($scooter);
 
-        $request = new ServerRequest(parsedBody: ['scooterId' => 123, 'status' => 1]);
+        $request = (new ServerRequest(parsedBody: ['scooterId' => 123, 'status' => 1]))
+            ->withAttribute('id', 123);
 
         $subject = new ScooterRepository($entityManager);
 

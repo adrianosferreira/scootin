@@ -42,7 +42,6 @@ class ConfigProvider
     {
         return [
             'factories'  => [
-                ScooterHandler::class           => ScooterHandlerFactory::class,
                 ScooterNearbyHandler::class     => ScooterNearbyHandlerFactory::class,
                 ScooterHistoryRepository::class => ScooterHistoryRepositoryFactory::class,
                 ScooterRepository::class        => ScooterRepositoryFactory::class,
